@@ -1,5 +1,4 @@
-var oracledb = require('oracledb');
-oracledb.outFormat = oracledb.OBJECT;
+
 var dbConfig = require('./dbconfig.js');
 var fs= require("fs");
 var upload_folder="uploads/"
