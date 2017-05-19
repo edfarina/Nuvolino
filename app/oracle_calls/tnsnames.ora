@@ -1,0 +1,42 @@
+int8r=(
+       DESCRIPTION=
+       (ADDRESS= (PROTOCOL=TCP) (HOST=int8r-s.cern.ch) (PORT=10121) )
+       (LOAD_BALANCE=on)
+       (ENABLE=BROKEN)
+       (CONNECT_DATA=
+               (SERVER=DEDICATED)
+               (SERVICE_NAME=int8r.cern.ch)
+       )
+)
+int8r_external=(
+     DESCRIPTION=
+     (ADDRESS= (PROTOCOL=TCP)(HOST=db-d0002.cern.ch)(PORT=10654))
+     (LOAD_BALANCE=on)
+     (CONNECT_DATA=
+             (SERVER=DEDICATED)
+             (SERVICE_NAME=int8r.cern.ch)
+     )
+)
+
+atlr = (
+        DESCRIPTION=
+        (ADDRESS= (PROTOCOL=TCP) (HOST=localhost.cern.ch) (PORT=10004) )
+        (LOAD_BALANCE=on)
+        (ENABLE=BROKEN)
+        (CONNECT_DATA=
+                (SERVER=DEDICATED)
+                (SERVICE_NAME=atlr.cern.ch)
+                (INSTANCE_NAME=ATLR1)
+        )
+)
+
+sql = (
+DESCRIPTION=
+(ADDRESS= (PROTOCOL=TCP) (HOST=sql11.freesqldatabase.com) (PORT=10004) )
+(LOAD_BALANCE=on)
+(ENABLE=BROKEN)
+(CONNECT_DATA=
+(SERVER=DEDICATED)
+(SERVICE_NAME=sql)
+)
+)
