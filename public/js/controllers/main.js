@@ -4722,7 +4722,7 @@ var month = date.getUTCMonth() + 1;
 
          // $scope.checking_spin = false;
      $scope.Draw();
-     }, 2000);
+     }, 3000);
       $scope.Draw();
    /* setTimeout(function(){
      $scope.Draw();
