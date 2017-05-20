@@ -4332,19 +4332,19 @@ var month = date.getUTCMonth() + 1;
         $scope.Search = function() {
 	
        /*     $scope.DataToBeDrawn = {} */
-            $scope.DataToBeDrawn.PInst = []
-            $scope.DataToBeDrawn.Date_ = []
-            $scope.DataToBeDrawn.Energy = []
-            $scope.DataToBeDrawn.Seconds = []
-            $scope.DataToBeDrawn.StateOfCharge = []
-            $scope.DataToBeDrawn.ConnStatus = []
-            $scope.DataToBeDrawn.GridPower1 = []
-            $scope.DataToBeDrawn.GridPower2 = []
-            $scope.DataToBeDrawn.GridPower3 = []
-            $scope.DataToBeDrawn.BatteryCurrent = []
-            $scope.DataToBeDrawn.State = []
-            $scope.DataToBeDrawn.BatteryAlarm = []
-            $scope.DataToBeDrawn.ConnCCGX = []
+            // $scope.DataToBeDrawn.PInst = []
+            // $scope.DataToBeDrawn.Date_ = []
+            // $scope.DataToBeDrawn.Energy = []
+            // $scope.DataToBeDrawn.Seconds = []
+            // $scope.DataToBeDrawn.StateOfCharge = []
+            // $scope.DataToBeDrawn.ConnStatus = []
+            // $scope.DataToBeDrawn.GridPower1 = []
+            // $scope.DataToBeDrawn.GridPower2 = []
+            // $scope.DataToBeDrawn.GridPower3 = []
+            // $scope.DataToBeDrawn.BatteryCurrent = []
+            // $scope.DataToBeDrawn.State = []
+            // $scope.DataToBeDrawn.BatteryAlarm = []
+            // $scope.DataToBeDrawn.ConnCCGX = []
 
 
             $scope.SearchPerformed = false;
@@ -4358,8 +4358,9 @@ var month = date.getUTCMonth() + 1;
         $scope.StatDataPINST.var_date = "Date_";
         $scope.StatDataPINST.min_date = $scope.myDateFrom.getFullYear() + "/" + ('0' + ($scope.myDateFrom.getMonth() + 1)).slice(-2) + "/" +  ('0' + ( $scope.myDateFrom.getDate())).slice(-2);
         $scope.StatDataPINST.max_date = $scope.myDateTo.getFullYear() + "/" + ('0' + ($scope.myDateTo.getMonth() + 1)).slice(-2) + "/" +  ('0' + ( $scope.myDateTo.getDate())).slice(-2);
-        $scope.checking_spin = true;
+        // $scope.checking_spin = true;
         server_operations.HistoryDataNuvola($scope.StatDataPINST)
+        $scope.SearchPerformed = true;
         
         .success(function(data) {
             
@@ -4383,7 +4384,6 @@ var month = date.getUTCMonth() + 1;
               
             });
             
-            $scope.SearchPerformed = true;
             
             
             // $timeout(function () {
@@ -4716,7 +4716,7 @@ var month = date.getUTCMonth() + 1;
 //
 // //END DIMENSIONS
 //
-        // $scope.Draw();
+        $scope.Draw();
 //
      $timeout(function () {
 
