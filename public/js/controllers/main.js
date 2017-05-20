@@ -4332,19 +4332,19 @@ var month = date.getUTCMonth() + 1;
         $scope.Search = function() {
 	
        /*     $scope.DataToBeDrawn = {} */
-            // $scope.DataToBeDrawn.PInst = []
-            // $scope.DataToBeDrawn.Date_ = []
-            // $scope.DataToBeDrawn.Energy = []
-            // $scope.DataToBeDrawn.Seconds = []
-            // $scope.DataToBeDrawn.StateOfCharge = []
-            // $scope.DataToBeDrawn.ConnStatus = []
-            // $scope.DataToBeDrawn.GridPower1 = []
-            // $scope.DataToBeDrawn.GridPower2 = []
-            // $scope.DataToBeDrawn.GridPower3 = []
-            // $scope.DataToBeDrawn.BatteryCurrent = []
-            // $scope.DataToBeDrawn.State = []
-            // $scope.DataToBeDrawn.BatteryAlarm = []
-            // $scope.DataToBeDrawn.ConnCCGX = []
+            $scope.DataToBeDrawn.PInst = []
+            $scope.DataToBeDrawn.Date_ = []
+            $scope.DataToBeDrawn.Energy = []
+            $scope.DataToBeDrawn.Seconds = []
+            $scope.DataToBeDrawn.StateOfCharge = []
+            $scope.DataToBeDrawn.ConnStatus = []
+            $scope.DataToBeDrawn.GridPower1 = []
+            $scope.DataToBeDrawn.GridPower2 = []
+            $scope.DataToBeDrawn.GridPower3 = []
+            $scope.DataToBeDrawn.BatteryCurrent = []
+            $scope.DataToBeDrawn.State = []
+            $scope.DataToBeDrawn.BatteryAlarm = []
+            $scope.DataToBeDrawn.ConnCCGX = []
 
 
             $scope.SearchPerformed = false;
@@ -4715,9 +4715,12 @@ var month = date.getUTCMonth() + 1;
 //
 // //END DIMENSIONS
 //
-        // $scope.Draw();
+        $scope.Draw();
 //
      $timeout(function () {
+         $scope.SearchPerformed = true;
+
+         $scope.checking_spin = false; 
      $scope.Draw();
      }, 2000);
    /* setTimeout(function(){
@@ -4735,9 +4738,7 @@ var month = date.getUTCMonth() + 1;
 	
 	$scope.Draw = function(){
 
-        $scope.SearchPerformed = true;
 
-        $scope.checking_spin = false;
         
 	$scope.WritePie();
     
