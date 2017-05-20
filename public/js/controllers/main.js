@@ -4331,20 +4331,20 @@ var month = date.getUTCMonth() + 1;
 
         $scope.Search = function() {
 	
-            $scope.DataToBeDrawn = null
-            $scope.DataToBeDrawn.PInst = null
-            $scope.DataToBeDrawn.Date_ = null
-            $scope.DataToBeDrawn.Energy = null
-            $scope.DataToBeDrawn.Seconds = null
-            $scope.DataToBeDrawn.StateOfCharge = null
-            $scope.DataToBeDrawn.ConnStatus = null
-            $scope.DataToBeDrawn.GridPower1 = null
-            $scope.DataToBeDrawn.GridPower2 = null
-            $scope.DataToBeDrawn.GridPower3 = null
-            $scope.DataToBeDrawn.BatteryCurrent = null
-            $scope.DataToBeDrawn.State = null
-            $scope.DataToBeDrawn.BatteryAlarm = null
-            $scope.DataToBeDrawn.ConnCCGX = null
+       /*     $scope.DataToBeDrawn = {} */
+            $scope.DataToBeDrawn.PInst = []
+            $scope.DataToBeDrawn.Date_ = []
+            $scope.DataToBeDrawn.Energy = []
+            $scope.DataToBeDrawn.Seconds = []
+            $scope.DataToBeDrawn.StateOfCharge = []
+            $scope.DataToBeDrawn.ConnStatus = []
+            $scope.DataToBeDrawn.GridPower1 = []
+            $scope.DataToBeDrawn.GridPower2 = []
+            $scope.DataToBeDrawn.GridPower3 = []
+            $scope.DataToBeDrawn.BatteryCurrent = []
+            $scope.DataToBeDrawn.State = []
+            $scope.DataToBeDrawn.BatteryAlarm = []
+            $scope.DataToBeDrawn.ConnCCGX = [] 
 
 
             $scope.SearchPerformed = false;
@@ -4365,7 +4365,7 @@ var month = date.getUTCMonth() + 1;
             
 
             data.resu.forEach( function (item, index, object){
-                console.log(item.Date_)
+                // console.log(item.Date_)
                 
                 $scope.DataToBeDrawn.PInst.push(item.Pinst);
                 $scope.DataToBeDrawn.Date_.push(item.Date_);
@@ -4385,11 +4385,9 @@ var month = date.getUTCMonth() + 1;
             
 
             
-            $timeout(function () {
-                $scope.SearchPerformed = true;
-            
-                $scope.checking_spin = false;
-            }, 2000);
+            // $timeout(function () {
+
+            // }, 2000);
             
         });
 
@@ -4737,6 +4735,10 @@ var month = date.getUTCMonth() + 1;
 	
 	$scope.Draw = function(){
 
+        $scope.SearchPerformed = true;
+
+        $scope.checking_spin = false;
+        
 	$scope.WritePie();
     
     $scope.WritePInst();
@@ -5023,7 +5025,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'Boards historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'Boards', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'week/year' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
 
@@ -5048,7 +5050,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'PInst historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'PInst', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5069,7 +5071,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'Energy historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'Energy', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5089,7 +5091,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'Seconds historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'Seconds', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5109,7 +5111,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'StateOfCharge historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'StateOfCharge', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5129,7 +5131,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'ConnStatus historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'ConnStatus', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5149,7 +5151,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'GridPower1 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower1', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5169,7 +5171,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'GridPower2 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower2', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5189,7 +5191,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'GridPower3 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower3', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5209,7 +5211,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'State historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'State', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5229,7 +5231,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'BatteryAlarm historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'BatteryAlarm', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5249,7 +5251,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'BatteryVoltage historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'BatteryVoltage', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5269,7 +5271,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'BatteryCurrent historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'BatteryCurrent', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
@@ -5289,7 +5291,7 @@ var month = date.getUTCMonth() + 1;
         }
         entries = entries + " ] }, 'options': {  'title': 'ConnCCGX historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'ConnCCGX', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
 
-        console.log(entries);
+        // console.log(entries);
 
         eval(entries);
     };
