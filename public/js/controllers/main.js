@@ -4723,7 +4723,7 @@ var month = date.getUTCMonth() + 1;
          // $scope.checking_spin = false;
      $scope.Draw();
      }, 3000);
-      $scope.Draw();
+      // $scope.Draw();
    /* setTimeout(function(){
      $scope.Draw();
 
@@ -5016,10 +5016,11 @@ var month = date.getUTCMonth() + 1;
         var entries =  "$scope.myChartTrendPlot = {        'type': 'AreaChart',        'displayed': false,        'data': {        'cols': [          {        'id': 'month',        'label': 'Month',        'type': 'string',        'p': {}          },      {        'id': 'Examined',        'label': 'Board examined',        'type': 'number'      }    ],   'rows': [ " ;
 
         var i =0;
+        console.log($scope.number);
+        
         for (var entriesit in $scope.number){
 
             entries = entries + " { 'c': [ { 'v': '" + $scope.dates[entriesit] + "' }, { 'v': " + $scope.number[entriesit] + " } ]  }" 	 
-            console.log($scope.number);
             if (i<$scope.number.length)
             {
                 entries = entries + ", ";
@@ -5060,12 +5061,13 @@ var month = date.getUTCMonth() + 1;
     
     $scope.WriteEnergy = function(){
         var entries =  "$scope.myChartTrendEnergy = {        'type': 'AreaChart',        'displayed': false,        'data': {        'cols': [          {        'id': 'month',        'label': 'Month',        'type': 'string',        'p': {}          },      {        'id': 'Energy',        'label': 'Energy',        'type': 'number'      }    ],   'rows': [ " ;
+        console.log("writing energy");
 
         var i =0;
         for (var entriesit in $scope.DataToBeDrawn.Energy){
 
             entries = entries + " { 'c': [ { 'v': '" + $scope.DataToBeDrawn.Date_[entriesit] + "' }, { 'v': " + $scope.DataToBeDrawn.Energy[entriesit] + " } ]  }" 	 
-            // console.log($scope.number);
+            console.log($scope.DataToBeDrawn.Energy[entriesit]);
             if (i<$scope.DataToBeDrawn.Energy.length)
             {
                 entries = entries + ", ";
@@ -5285,7 +5287,7 @@ var month = date.getUTCMonth() + 1;
         for (var entriesit in $scope.DataToBeDrawn.ConnCCGX){
 
             entries = entries + " { 'c': [ { 'v': '" + $scope.DataToBeDrawn.Date_[entriesit] + "' }, { 'v': " + $scope.DataToBeDrawn.ConnCCGX[entriesit] + " } ]  }" 	 
-            console.log($scope.number);
+            // console.log($scope.number);
             if (i<$scope.DataToBeDrawn.ConnCCGX.length)
             {
                 entries = entries + ", ";
