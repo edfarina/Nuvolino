@@ -5285,7 +5285,7 @@ var month = date.getUTCMonth() + 1;
         for (var entriesit in $scope.DataToBeDrawn.ConnCCGX){
 
             entries = entries + " { 'c': [ { 'v': '" + $scope.DataToBeDrawn.Date_[entriesit] + "' }, { 'v': " + $scope.DataToBeDrawn.ConnCCGX[entriesit] + " } ]  }" 	 
-            // console.log($scope.number);
+            console.log($scope.number);
             if (i<$scope.DataToBeDrawn.ConnCCGX.length)
             {
                 entries = entries + ", ";
