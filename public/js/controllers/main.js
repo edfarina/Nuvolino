@@ -4741,7 +4741,7 @@ var month = date.getUTCMonth() + 1;
 
 
         
-	$scope.WritePie();
+	// $scope.WritePie();
     
     $scope.WritePInst();
     $scope.WriteEnergy();
