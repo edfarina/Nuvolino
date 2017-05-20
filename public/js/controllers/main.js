@@ -4331,20 +4331,20 @@ var month = date.getUTCMonth() + 1;
 
         $scope.Search = function() {
 	
-            $scope.DataToBeDrawn = {}
-            $scope.DataToBeDrawn.PInst = []
-            $scope.DataToBeDrawn.Date_ = []
-            $scope.DataToBeDrawn.Energy = []
-            $scope.DataToBeDrawn.Seconds = []
-            $scope.DataToBeDrawn.StateOfCharge = []
-            $scope.DataToBeDrawn.ConnStatus = []
-            $scope.DataToBeDrawn.GridPower1 = []
-            $scope.DataToBeDrawn.GridPower2 = []
-            $scope.DataToBeDrawn.GridPower3 = []
-            $scope.DataToBeDrawn.BatteryCurrent = []
-            $scope.DataToBeDrawn.State = []
-            $scope.DataToBeDrawn.BatteryAlarm = []
-            $scope.DataToBeDrawn.ConnCCGX = []
+            $scope.DataToBeDrawn = null
+            $scope.DataToBeDrawn.PInst = null
+            $scope.DataToBeDrawn.Date_ = null
+            $scope.DataToBeDrawn.Energy = null
+            $scope.DataToBeDrawn.Seconds = null
+            $scope.DataToBeDrawn.StateOfCharge = null
+            $scope.DataToBeDrawn.ConnStatus = null
+            $scope.DataToBeDrawn.GridPower1 = null
+            $scope.DataToBeDrawn.GridPower2 = null
+            $scope.DataToBeDrawn.GridPower3 = null
+            $scope.DataToBeDrawn.BatteryCurrent = null
+            $scope.DataToBeDrawn.State = null
+            $scope.DataToBeDrawn.BatteryAlarm = null
+            $scope.DataToBeDrawn.ConnCCGX = null
 
 
             $scope.SearchPerformed = false;
