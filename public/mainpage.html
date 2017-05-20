@@ -210,6 +210,9 @@
 	    <div class="pull-right">
 	      <button type="button" class="btn btn-secondary btn-sm pull-right" ng-click="Search()" id="search" >Search</button>
 	    </div> 
+	    <p class="text-center" ng-show="checking_spin">
+	    <span class="fa fa-spinner fa-spin fa-2x"></span>
+	    </p>
 	</div>
         </div>
     </div>
@@ -290,37 +293,7 @@ ciao
 
                  
                </div>
-	     <div class="panel panel-info" ng-show="SearchPerformed">
-                <div class="panel-heading">Results table by table</div>
-                <div class="panel-body">
-		<div class="row">
-                    <div class="col-md-6 text-center">
-			<div google-chart chart="TOPLIGHTPieChart" style="height:600px; width:100%;"></div>
-		   </div>
-                <div class="col-md-6 text-center">
-			<div google-chart chart="BACKLIGHTPieChart" style="height:600px; width:100%;"></div>
-		    </div>
-		</div>
-		<div class="row">
-                    <div class="col-md-6 text-center">
-			<div google-chart chart="HVPieChart" style="height:600px; width:100%;"></div>
-		   </div>
-                <div class="col-md-6 text-center">
-			<div google-chart chart="PILLARPieChart" style="height:600px; width:100%;"></div>
-		    </div>
-		</div>
-	      </div>
-		<div class="row">
-                    <div class="col-md-6 text-center">
-			<div google-chart chart="DIMENSIONSPieChart" style="height:600px; width:100%;"></div>
-		   </div>
-                <div class="col-md-6 text-center">
-			<div google-chart chart="RESISTIVE_CHECKPieChart" style="height:600px; width:100%;"></div>
-		    </div>
-		</div>
- 	    </div>
 
-</div>
 </div>
  </body>
 </html>

@@ -4023,6 +4023,9 @@ var month = date.getUTCMonth() + 1;
 }])
 .controller('dateController', ['$scope', 'server_operations', 'sharedProperties', '$timeout', function ($scope, server_operations, sharedProperties, $timeout ){
 
+
+
+    $scope.checking_spin = false;
     $scope.login_ok =true;   
     $scope.username =0;   
     $scope.LastData = true;    
@@ -4242,20 +4245,7 @@ var month = date.getUTCMonth() + 1;
         $scope.StatDataPINST= {};
 
         
-        $scope.DataToBeDrawn = {}
-        $scope.DataToBeDrawn.PInst = []
-        $scope.DataToBeDrawn.Date_ = []
-        $scope.DataToBeDrawn.Energy = []
-        $scope.DataToBeDrawn.Seconds = []
-        $scope.DataToBeDrawn.StateOfCharge = []
-        $scope.DataToBeDrawn.ConnStatus = []
-        $scope.DataToBeDrawn.GridPower1 = []
-        $scope.DataToBeDrawn.GridPower2 = []
-        $scope.DataToBeDrawn.GridPower3 = []
-        $scope.DataToBeDrawn.BatteryCurrent = []
-        $scope.DataToBeDrawn.State = []
-        $scope.DataToBeDrawn.BatteryAlarm = []
-        $scope.DataToBeDrawn.ConnCCGX = []
+
     
     $scope.badHV = 0;
     $scope.totHV = 0;
@@ -4325,10 +4315,23 @@ var month = date.getUTCMonth() + 1;
 
         $scope.Search = function() {
 	
-		
+            $scope.DataToBeDrawn = {}
+            $scope.DataToBeDrawn.PInst = []
+            $scope.DataToBeDrawn.Date_ = []
+            $scope.DataToBeDrawn.Energy = []
+            $scope.DataToBeDrawn.Seconds = []
+            $scope.DataToBeDrawn.StateOfCharge = []
+            $scope.DataToBeDrawn.ConnStatus = []
+            $scope.DataToBeDrawn.GridPower1 = []
+            $scope.DataToBeDrawn.GridPower2 = []
+            $scope.DataToBeDrawn.GridPower3 = []
+            $scope.DataToBeDrawn.BatteryCurrent = []
+            $scope.DataToBeDrawn.State = []
+            $scope.DataToBeDrawn.BatteryAlarm = []
+            $scope.DataToBeDrawn.ConnCCGX = []
 
 
-            $scope.SearchPerformed = true;
+            $scope.SearchPerformed = false;
 
     //BEGIN PINST
         // $scope.StatDataPINST.selectedBoardType = $scope.selectedBoardType.name;
@@ -4339,10 +4342,11 @@ var month = date.getUTCMonth() + 1;
         $scope.StatDataPINST.var_date = "Date_";
         $scope.StatDataPINST.min_date = $scope.myDateFrom.getFullYear() + "/" + ('0' + ($scope.myDateFrom.getMonth() + 1)).slice(-2) + "/" +  ('0' + ( $scope.myDateFrom.getDate())).slice(-2);
         $scope.StatDataPINST.max_date = $scope.myDateTo.getFullYear() + "/" + ('0' + ($scope.myDateTo.getMonth() + 1)).slice(-2) + "/" +  ('0' + ( $scope.myDateTo.getDate())).slice(-2);
-
+        $scope.checking_spin = true;
         server_operations.HistoryDataNuvola($scope.StatDataPINST)
+        
         .success(function(data) {
-
+            
 
             data.resu.forEach( function (item, index, object){
                 console.log(item.Date_)
@@ -4362,6 +4366,15 @@ var month = date.getUTCMonth() + 1;
                 $scope.DataToBeDrawn.ConnCCGX.push(item.ConnCCGX);
               
             });
+            
+
+            
+            $timeout(function () {
+                $scope.SearchPerformed = true;
+            
+                $scope.checking_spin = false;
+            }, 2000);
+            
         });
 
     //END PINST
@@ -4688,7 +4701,7 @@ var month = date.getUTCMonth() + 1;
 //
 // //END DIMENSIONS
 //
-        $scope.Draw();
+        // $scope.Draw();
 //
      $timeout(function () {
      $scope.Draw();
