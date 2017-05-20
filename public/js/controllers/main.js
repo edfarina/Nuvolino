@@ -4332,19 +4332,19 @@ var month = date.getUTCMonth() + 1;
         $scope.Search = function() {
 	
        /*     $scope.DataToBeDrawn = {} */
-            $scope.DataToBeDrawn.PInst = []
-            $scope.DataToBeDrawn.Date_ = []
-            $scope.DataToBeDrawn.Energy = []
-            $scope.DataToBeDrawn.Seconds = []
-            $scope.DataToBeDrawn.StateOfCharge = []
-            $scope.DataToBeDrawn.ConnStatus = []
-            $scope.DataToBeDrawn.GridPower1 = []
-            $scope.DataToBeDrawn.GridPower2 = []
-            $scope.DataToBeDrawn.GridPower3 = []
-            $scope.DataToBeDrawn.BatteryCurrent = []
-            $scope.DataToBeDrawn.State = []
-            $scope.DataToBeDrawn.BatteryAlarm = []
-            $scope.DataToBeDrawn.ConnCCGX = []
+            $scope.DataToBeDrawn.PInst.length = 0;
+            $scope.DataToBeDrawn.Date_ .length = 0;
+            $scope.DataToBeDrawn.Energy.length = 0;
+            $scope.DataToBeDrawn.Seconds.length = 0;
+            $scope.DataToBeDrawn.StateOfCharge.length = 0;
+            $scope.DataToBeDrawn.ConnStatus.length = 0;
+            $scope.DataToBeDrawn.GridPower1.length = 0;
+            $scope.DataToBeDrawn.GridPower2.length = 0;
+            $scope.DataToBeDrawn.GridPower3.length = 0;
+            $scope.DataToBeDrawn.BatteryCurrent.length = 0;
+            $scope.DataToBeDrawn.State.length = 0;
+            $scope.DataToBeDrawn.BatteryAlarm.length = 0;
+            $scope.DataToBeDrawn.ConnCCGX.length = 0;
 
 
             $scope.SearchPerformed = false;
