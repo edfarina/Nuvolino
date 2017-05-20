@@ -4358,8 +4358,7 @@ var month = date.getUTCMonth() + 1;
         $scope.StatDataPINST.var_date = "Date_";
         $scope.StatDataPINST.min_date = $scope.myDateFrom.getFullYear() + "/" + ('0' + ($scope.myDateFrom.getMonth() + 1)).slice(-2) + "/" +  ('0' + ( $scope.myDateFrom.getDate())).slice(-2);
         $scope.StatDataPINST.max_date = $scope.myDateTo.getFullYear() + "/" + ('0' + ($scope.myDateTo.getMonth() + 1)).slice(-2) + "/" +  ('0' + ( $scope.myDateTo.getDate())).slice(-2);
-        // $scope.checking_spin = true;
-        $scope.SearchPerformed = true;
+        $scope.checking_spin = true;
         
         server_operations.HistoryDataNuvola($scope.StatDataPINST)
         .success(function(data) {
@@ -4719,8 +4718,9 @@ var month = date.getUTCMonth() + 1;
         // $scope.Draw();
 //
      $timeout(function () {
+         $scope.SearchPerformed = true;
 
-         // $scope.checking_spin = false;
+         $scope.checking_spin = false;
      $scope.Draw();
      }, 3000);
       // $scope.Draw();
