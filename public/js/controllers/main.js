@@ -4716,11 +4716,11 @@ var month = date.getUTCMonth() + 1;
 //
 // //END DIMENSIONS
 //
-        $scope.Draw();
+        // $scope.Draw();
 //
      $timeout(function () {
 
-         $scope.checking_spin = false; 
+         // $scope.checking_spin = false;
      $scope.Draw();
      }, 2000);
       $scope.Draw();
