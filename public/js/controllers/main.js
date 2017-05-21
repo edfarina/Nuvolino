@@ -4716,13 +4716,12 @@ var month = date.getUTCMonth() + 1;
 // //END DIMENSIONS
 //
         // $scope.Draw();
-//
+        console.log("passsing from predrawing")
      $timeout(function () {
          $scope.SearchPerformed = true;
-
-         $scope.checking_spin = false;
-     $scope.Draw();
-     }, 3000);
+          $scope.checking_spin = false;
+          $scope.Draw();
+     },2000);
       // $scope.Draw();
    /* setTimeout(function(){
      $scope.Draw();
@@ -4742,7 +4741,8 @@ var month = date.getUTCMonth() + 1;
 
         
 	// $scope.WritePie();
-    
+
+     
     $scope.WritePInst();
     $scope.WriteEnergy();
     $scope.WriteSeconds();
