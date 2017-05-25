@@ -4047,7 +4047,7 @@ var month = date.getUTCMonth() + 1;
         console.log($scope.username)
         $scope.StatData.username = $scope.username;
 
-        $scope.StatData.table = $scope.username;
+        $scope.StatData.table = "Nuvola";
         $scope.StatDataPINST.table = "Nuvola";
 
 
