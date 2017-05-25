@@ -3710,7 +3710,7 @@ GetLastEntry: function (req, res, callbackTot){
 
     connection.connect();
 
-               console.log( "cdc");
+               console.log( "azzurro");
    			var resultTot=[];
    			connection.query(
    			"SELECT * " +

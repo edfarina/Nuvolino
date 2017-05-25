@@ -4053,6 +4053,7 @@ var month = date.getUTCMonth() + 1;
         console.log($scope.StatDataPINST.table );
         
         console.log($scope.StatData.username);
+        
         if ($scope.StatData.table != 0){
         server_operations.GetLastEntry($scope.StatData)
         .success(function(data) {
