@@ -3693,12 +3693,11 @@ sql_string="SELECT BATCHHERITAGE.PARENTBATCHEQENTRYID FROM ATLAS_MUON_NSW_MM_LOG
 
 
 GetLastEntry: function (req, res, callbackTot){
-    // var table = 'Nuvola';
+    var table = 'Nuvola';
     console.log("sbd");
-    // var table = req.body.table;
-    console.log(dbConfig.user)
-    var table = dbConfig.user;
-    console.log(dbConfig.password)
+    var table = req.body.table;
+    // console.log(dbConfig.user)
+    // console.log(dbConfig.password)
 
     var connection = mysql.createConnection({
       host     : 'sql11.freesqldatabase.com',
@@ -3750,9 +3749,9 @@ GetLastEntry: function (req, res, callbackTot){
 
 
 HistoryDataNuvola: function (req, res, callbackTot){
-    var table = dbConfig.user;
+    var table = 'Nuvola';
     console.log("sbd");
-    // var table = req.body.table;
+    var table = req.body.table;
     console.log(dbConfig.user)
     console.log(dbConfig.password)
     var stringtype = "";
