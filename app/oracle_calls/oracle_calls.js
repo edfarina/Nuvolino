@@ -3712,7 +3712,7 @@ GetLastEntry: function (req, res, callbackTot){
    			var resultTot=[];
    			connection.query(
    			"SELECT * " +
-   			" FROM Nuvola ORDER  BY Date_ DESC LIMIT  1 ",
+   			" FROM " + table + "  ORDER  BY Date_ DESC LIMIT  1 ",
 
    			{
 

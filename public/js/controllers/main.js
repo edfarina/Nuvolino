@@ -4031,6 +4031,7 @@ var month = date.getUTCMonth() + 1;
     $scope.LastData = true;    
     $scope.StatData ={};
     $scope.LastData ={};
+    $scope.StatDataPINST= {};
     
     $scope.StatData.username = $scope.username;
     $scope.StatData.table = $scope.username;
@@ -4044,6 +4045,15 @@ var month = date.getUTCMonth() + 1;
     $scope.$watch('username', function () {
 
         console.log($scope.username)
+        $scope.StatData.username = $scope.username;
+
+        $scope.StatData.table = $scope.username;
+        $scope.StatDataPINST.table = $scope.username;
+
+
+
+        console.log("fieve");
+        console.log($scope.StatData.username);
         server_operations.GetLastEntry($scope.StatData)
         .success(function(data) {
             console.log(data)
@@ -4242,7 +4252,7 @@ var month = date.getUTCMonth() + 1;
         $scope.StatDataRESISTIVE_CHECK= {};
 
 
-        $scope.StatDataPINST= {};
+
 
         
 
@@ -4351,7 +4361,7 @@ var month = date.getUTCMonth() + 1;
 
     //BEGIN PINST
         // $scope.StatDataPINST.selectedBoardType = $scope.selectedBoardType.name;
-        $scope.StatDataPINST.table = "Nuvola";
+        // $scope.StatDataPINST.table = "Nuvola";
 
 
         $scope.StatDataPINST.var_val_name = "Pinst";
