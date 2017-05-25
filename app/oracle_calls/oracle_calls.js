@@ -3696,8 +3696,8 @@ GetLastEntry: function (req, res, callbackTot){
     var table = 'Nuvola';
     console.log("sbd");
     var table = req.body.table;
-    // console.log(dbConfig.user)
-    // console.log(dbConfig.password)
+    console.log(dbConfig.user)
+    console.log(dbConfig.password)
 
     var connection = mysql.createConnection({
       host     : 'sql11.freesqldatabase.com',
@@ -3712,7 +3712,7 @@ GetLastEntry: function (req, res, callbackTot){
    			var resultTot=[];
    			connection.query(
    			"SELECT * " +
-   			" FROM " + table + " ORDER  BY Date_ DESC LIMIT  1 ",
+   			" FROM Nuvola ORDER  BY Date_ DESC LIMIT  1 ",
 
    			{
 

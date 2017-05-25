@@ -4351,7 +4351,7 @@ var month = date.getUTCMonth() + 1;
 
     //BEGIN PINST
         // $scope.StatDataPINST.selectedBoardType = $scope.selectedBoardType.name;
-        $scope.StatDataPINST.table = $scope.username;
+        $scope.StatDataPINST.table = "Nuvola";
 
 
         $scope.StatDataPINST.var_val_name = "Pinst";
