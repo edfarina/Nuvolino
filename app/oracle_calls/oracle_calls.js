@@ -3693,10 +3693,11 @@ sql_string="SELECT BATCHHERITAGE.PARENTBATCHEQENTRYID FROM ATLAS_MUON_NSW_MM_LOG
 
 
 GetLastEntry: function (req, res, callbackTot){
-    var table = 'Nuvola';
+    // var table = 'Nuvola';
     console.log("sbd");
-    var table = req.body.table;
+    // var table = req.body.table;
     console.log(dbConfig.user)
+    var table = dbConfig.user;
     console.log(dbConfig.password)
 
     var connection = mysql.createConnection({
@@ -3712,7 +3713,7 @@ GetLastEntry: function (req, res, callbackTot){
    			var resultTot=[];
    			connection.query(
    			"SELECT * " +
-   			" FROM Nuvola ORDER  BY Date_ DESC LIMIT  1 ",
+   			" FROM " + table + " ORDER  BY Date_ DESC LIMIT  1 ",
 
    			{
 
@@ -3749,9 +3750,9 @@ GetLastEntry: function (req, res, callbackTot){
 
 
 HistoryDataNuvola: function (req, res, callbackTot){
-    var table = 'Nuvola';
+    var table = dbConfig.user;
     console.log("sbd");
-    var table = req.body.table;
+    // var table = req.body.table;
     console.log(dbConfig.user)
     console.log(dbConfig.password)
     var stringtype = "";
