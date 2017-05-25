@@ -4047,13 +4047,13 @@ var month = date.getUTCMonth() + 1;
         console.log($scope.username)
         $scope.StatData.username = $scope.username;
 
-        $scope.StatData.table = "Nuvola";
-        $scope.StatDataPINST.table = "Nuvola";
-
-
-
-        console.log("fieve");
+        $scope.StatData.table = $scope.username;
+        $scope.StatDataPINST.table = $scope.username;
+        console.log($scope.StatData.table );
+        console.log($scope.StatDataPINST.table );
+        
         console.log($scope.StatData.username);
+        if ($scope.StatData.table != 0){
         server_operations.GetLastEntry($scope.StatData)
         .success(function(data) {
             console.log(data)
@@ -4089,6 +4089,7 @@ var month = date.getUTCMonth() + 1;
             }
             
         });
+    };
     });
     
     

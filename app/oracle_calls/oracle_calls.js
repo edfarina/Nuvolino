@@ -3696,9 +3696,10 @@ GetLastEntry: function (req, res, callbackTot){
     var table = 'Nuvola';
     console.log("sbd");
     var table = req.body.table;
+    console.log(table)
     console.log(dbConfig.user);
     console.log(dbConfig.password);
-    var table = 'Nuvola';
+    // var table = 'Nuvola';
 
     var connection = mysql.createConnection({
       host     : 'sql11.freesqldatabase.com',
