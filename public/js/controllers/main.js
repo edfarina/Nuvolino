@@ -4074,8 +4074,9 @@ var month = date.getUTCMonth() + 1;
             $scope.LastData.BatteryCurrent = data.resu[0].BatteryCurrent;
             $scope.LastData.ConnCCGX = data.resu[0].ConnCCGX;
 
-            $scope.LastData.Date_ = data.resu[0].Date_;
-            
+            d = new Date(data.resu[0].Date_);
+            $scope.LastData.Date_ = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear() + ' ' + ("0" + d.getHours()).slice(-2)
++ ':'+  ("0" + d.getMinutes()).slice(-2) + ':' +  ("0" + d.getSeconds()).slice(-2);
             console.log($scope.LastData.Seconds);
             $scope.LastData.StateSystem = "";
             
@@ -4380,7 +4381,10 @@ var month = date.getUTCMonth() + 1;
                 // console.log(item.Date_)
                 
                 $scope.DataToBeDrawn.PInst.push(item.Pinst);
-                $scope.DataToBeDrawn.Date_.push(item.Date_);
+                d = new Date(item.Date_);
+                $scope.DataToBeDrawn.Date_.push(d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear() + ' ' + ("0" + d.getHours()).slice(-2)
+    + ':'+  ("0" + d.getMinutes()).slice(-2) + ':' +  ("0" + d.getSeconds()).slice(-2));
+                // $scope.DataToBeDrawn.Date_.push(item.Date_);
                 $scope.DataToBeDrawn.Energy.push(item.Energy);
                 $scope.DataToBeDrawn.Seconds.push(item.Seconds);
                 $scope.DataToBeDrawn.StateOfCharge.push(item.StateOfCharge);
