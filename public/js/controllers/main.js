@@ -4357,6 +4357,7 @@ var month = date.getUTCMonth() + 1;
             $scope.DataToBeDrawn.BatteryCurrent.length = 0;
             $scope.DataToBeDrawn.State.length = 0;
             $scope.DataToBeDrawn.BatteryAlarm.length = 0;
+            $scope.DataToBeDrawn.BatteryVoltage.length = 0;
             $scope.DataToBeDrawn.ConnCCGX.length = 0;
 
 
@@ -4395,6 +4396,7 @@ var month = date.getUTCMonth() + 1;
                 $scope.DataToBeDrawn.BatteryCurrent.push(item.BatteryCurrent);
                 $scope.DataToBeDrawn.State.push(item.State);
                 $scope.DataToBeDrawn.BatteryAlarm.push(item.BatteryAlarm);
+                $scope.DataToBeDrawn.BatteryVoltage.push(item.BatteryVoltage);
                 $scope.DataToBeDrawn.ConnCCGX.push(item.ConnCCGX);
               
             });
