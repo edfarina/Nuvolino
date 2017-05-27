@@ -4279,6 +4279,8 @@ var month = date.getUTCMonth() + 1;
     $scope.DataToBeDrawn.BatteryCurrent = []
     $scope.DataToBeDrawn.State = []
     $scope.DataToBeDrawn.BatteryAlarm = []
+    $scope.DataToBeDrawn.BatteryVoltage = []
+
     $scope.DataToBeDrawn.ConnCCGX = []
     
     
