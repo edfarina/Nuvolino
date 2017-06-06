@@ -4401,7 +4401,7 @@ var month = date.getUTCMonth() + 1;
                 $scope.DataToBeDrawn.PInst.push(item.Pinst);
                 $scope.DataToBeDrawn.Date_.push(d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear() + ' ' + ("0" + d.getHours()).slice(-2)
     + ':'+  ("0" + d.getMinutes()).slice(-2) + ':' +  ("0" + d.getSeconds()).slice(-2));
-                $scope.DataToBeDrawn.Date_.push(item.Date_);
+                // $scope.DataToBeDrawn.Date_.push(item.Date_);
                 $scope.DataToBeDrawn.Energy.push(item.Energy);
                 $scope.DataToBeDrawn.Seconds.push(item.Seconds);
                 $scope.DataToBeDrawn.StateOfCharge.push(item.StateOfCharge);
@@ -5085,7 +5085,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'PInst historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'PInst', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'PInst historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'PInst', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5107,7 +5107,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'Energy historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'Energy', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'Energy historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'Energy', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5127,7 +5127,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'Seconds historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'Seconds', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'Seconds historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'Date', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5147,7 +5147,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'StateOfCharge historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'StateOfCharge', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'StateOfCharge historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'StateOfCharge', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5167,7 +5167,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'ConnStatus historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'ConnStatus', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'ConnStatus historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'ConnStatus', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5187,7 +5187,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'GridPower1 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower1', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'GridPower1 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower1', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5207,7 +5207,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'GridPower2 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower2', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'GridPower2 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower2', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5227,7 +5227,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'GridPower3 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower3', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'GridPower3 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower3', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5247,7 +5247,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'State historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'State', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'State historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'State', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5267,7 +5267,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'BatteryAlarm historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'BatteryAlarm', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'BatteryAlarm historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'BatteryAlarm', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5287,7 +5287,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'BatteryVoltage historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'BatteryVoltage', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'BatteryVoltage historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'BatteryVoltage', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5307,7 +5307,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'BatteryCurrent historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'BatteryCurrent', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'BatteryCurrent historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'BatteryCurrent', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5327,7 +5327,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'ConnCCGX historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'ConnCCGX', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'seconds' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'ConnCCGX historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'ConnCCGX', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
