@@ -4078,17 +4078,30 @@ var month = date.getUTCMonth() + 1;
             $scope.LastData.Date_ = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear() + ' ' + ("0" + d.getHours()).slice(-2)
 + ':'+  ("0" + d.getMinutes()).slice(-2) + ':' +  ("0" + d.getSeconds()).slice(-2);
             console.log($scope.LastData.Seconds);
-            $scope.LastData.StateSystem = "";
+            $scope.LastData.StateSystem = "default";
+            console.log($scope.LastData.Pinst);
             
             if ($scope.LastData.Pinst>0){
-                $scope.LastData.StateSystem = "Discharging";
-            }
-            if ($scope.LastData.Pinst<0){
                 $scope.LastData.StateSystem = "Recharging";
-            }
-            if ($scope.LastData.Pinst==0){
+            };
+            if ($scope.LastData.Pinst<0){
+                console.log("dd")
+                $scope.LastData.StateSystem = "Discharging";
+            };
+            if ($scope.LastData.Pinst===0){
                 $scope.LastData.StateSystem = "Standby";
-            }
+            };
+            
+
+            $scope.myChartObjectBattery.data = [
+              ['Label', 'Value'],
+                ['Battery', Math.abs(parseFloat($scope.LastData.StateOfCharge))],
+            ];
+            
+            $scope.myChartObjectPInst.data = [
+              ['Label', 'Value'],
+              ['PInst', Math.abs($scope.LastData.Pinst)],
+            ];
             
         });
     };
@@ -4203,10 +4216,10 @@ var month = date.getUTCMonth() + 1;
          minorTicks: 5
        };
 
-       $scope.myChartObjectBattery.data = [
-         ['Label', 'Value'],
-           ['Battery', Math.abs(parseFloat($scope.LastData.StateOfCharge))],
-       ];
+       // $scope.myChartObjectBattery.data = [
+       //   ['Label', 'Value'],
+       //     ['Battery', Math.abs(parseFloat($scope.LastData.StateOfCharge))],
+       // ];
        
        // GAUGE PINST
        $scope.myChartObjectPInst = {};
@@ -4215,17 +4228,18 @@ var month = date.getUTCMonth() + 1;
           $scope.myChartObjectPInst.options = {
             width: 400,
             height: 120,
-            redFrom: 90,
-            redTo: 100,
-            yellowFrom: 75,
-            yellowTo: 90,
-            minorTicks: 5
+            redFrom: 6000,
+            redTo: 9000,
+            yellowFrom: 4000,
+            yellowTo: 6000,
+            minorTicks: 500,
+              max: 9000
           };
 
-          $scope.myChartObjectPInst.data = [
-            ['Label', 'Value'],
-            ['PInst', Math.abs($scope.LastData.Pinst)],
-          ];
+          // $scope.myChartObjectPInst.data = [
+          //   ['Label', 'Value'],
+          //   ['PInst', Math.abs($scope.LastData.Pinst)],
+          // ];
 
 
 //$scope.FinalDecisionPieChart = {};
@@ -4382,12 +4396,12 @@ var month = date.getUTCMonth() + 1;
 
             data.resu.forEach( function (item, index, object){
                 // console.log(item.Date_)
-                
-                $scope.DataToBeDrawn.PInst.push(item.Pinst);
                 d = new Date(item.Date_);
+                // if (("0" + d.getSeconds()).slice(-2)=="00"){
+                $scope.DataToBeDrawn.PInst.push(item.Pinst);
                 $scope.DataToBeDrawn.Date_.push(d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear() + ' ' + ("0" + d.getHours()).slice(-2)
     + ':'+  ("0" + d.getMinutes()).slice(-2) + ':' +  ("0" + d.getSeconds()).slice(-2));
-                // $scope.DataToBeDrawn.Date_.push(item.Date_);
+                $scope.DataToBeDrawn.Date_.push(item.Date_);
                 $scope.DataToBeDrawn.Energy.push(item.Energy);
                 $scope.DataToBeDrawn.Seconds.push(item.Seconds);
                 $scope.DataToBeDrawn.StateOfCharge.push(item.StateOfCharge);
@@ -4400,7 +4414,7 @@ var month = date.getUTCMonth() + 1;
                 $scope.DataToBeDrawn.BatteryAlarm.push(item.BatteryAlarm);
                 $scope.DataToBeDrawn.BatteryVoltage.push(item.BatteryVoltage);
                 $scope.DataToBeDrawn.ConnCCGX.push(item.ConnCCGX);
-              
+            
             });
             
             

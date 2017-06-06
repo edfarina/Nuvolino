@@ -3806,8 +3806,10 @@ HistoryDataNuvola: function (req, res, callbackTot){
    //console.log(result.rows)
    //we have to check if the files are already present on the disk cache (/uploads), otherwise we have to get them back from the DB
    					async.each(result, function (row, callbackEach) {
+                        if ((row.Seconds) % 300 === 0){
+                            
    						resultTot.push(row);
-
+                    };
    						return callbackEach(null);
 
    					});
@@ -3884,7 +3886,7 @@ if (req.body.TypeBoardSelected == true){
 //we have to check if the files are already present on the disk cache (/uploads), otherwise we have to get them back from the DB
 
 					async.each(result.rows, function (row, callbackEach) {
-
+                        
 						resultTot.push(row);
 
 						return callbackEach(null);
