@@ -4073,6 +4073,9 @@ var month = date.getUTCMonth() + 1;
             $scope.LastData.BatteryVoltage = data.resu[0].BatteryVoltage;
             $scope.LastData.BatteryCurrent = data.resu[0].BatteryCurrent;
             $scope.LastData.ConnCCGX = data.resu[0].ConnCCGX;
+            var temp = $scope.LastData.Energy * 0.18;
+            $scope.euros =  (Math.round(temp)).toFixed(1); 
+            
 
             d = new Date(data.resu[0].Date_);
             $scope.LastData.Date_ = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear() + ' ' + ("0" + d.getHours()).slice(-2)
@@ -4297,8 +4300,18 @@ var month = date.getUTCMonth() + 1;
 
     $scope.DataToBeDrawn.ConnCCGX = []
     
+    $scope.euros = 0;
     
 
+    $scope.maxgrid1 = 0;
+    $scope.maxgrid2 = 0;
+    $scope.maxgrid3 = 0;
+    $scope.mingrid1 = 0;
+    $scope.mingrid2 = 0;
+    $scope.mingrid3 = 0;
+
+    $scope.mingrid = 0;
+    $scope.maxgrid = 0;
 
     $scope.SearchPerformed = false;
     $scope.dates = [];
@@ -4416,6 +4429,23 @@ var month = date.getUTCMonth() + 1;
                 $scope.DataToBeDrawn.ConnCCGX.push(item.ConnCCGX);
             
             });
+            
+            
+            
+            $scope.maxgrid1 = Math.max.apply(null, $scope.DataToBeDrawn.GridPower1);
+            $scope.maxgrid2 = Math.max.apply(null, $scope.DataToBeDrawn.GridPower2);
+            $scope.maxgrid3 = Math.max.apply(null, $scope.DataToBeDrawn.GridPower3);
+            
+            $scope.mingrid1 = Math.min.apply(null, $scope.DataToBeDrawn.GridPower1);
+            $scope.mingrid2 = Math.min.apply(null, $scope.DataToBeDrawn.GridPower2);
+            $scope.mingrid3 = Math.min.apply(null, $scope.DataToBeDrawn.GridPower3);
+            
+
+            $scope.mingrid = Math.min($scope.mingrid1,$scope.mingrid2,$scope.mingrid3);
+            $scope.maxgrid = Math.max($scope.maxgrid1,$scope.maxgrid2,$scope.maxgrid3);
+            
+            console.log($scope.mingrid);
+            console.log($scope.maxgrid);
             
             
                console.log("passsing from predrawing")
@@ -5187,7 +5217,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'GridPower1 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower1', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'GridPower1 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower1', 'gridlines': {     'count': 10    } , 'maxValue': '"+ $scope.maxgrid + "' , 'minValue': '"+ $scope.mingrid + "'   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5207,7 +5237,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'GridPower2 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower2', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'GridPower2 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower2', 'gridlines': {     'count': 10    }  , 'maxValue': '"+ $scope.maxgrid + "' , 'minValue': '"+ $scope.mingrid + "' }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 
@@ -5227,7 +5257,7 @@ var month = date.getUTCMonth() + 1;
                 entries = entries + ", ";
             }
         }
-        entries = entries + " ] }, 'options': {  'title': 'GridPower3 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower3', 'gridlines': {     'count': 10    }   }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
+        entries = entries + " ] }, 'options': {  'title': 'GridPower3 historical trend','isStacked': 'true', 'fill': 20, 'displayExactValues': true,'vAxis': { 'title': 'GridPower3', 'gridlines': {     'count': 10    } , 'maxValue': '"+ $scope.maxgrid + "' , 'minValue': '"+ $scope.mingrid + "'  }, 'hAxis': {  'title': 'Date' }}, 'formatters': {}}";
 
         // console.log(entries);
 

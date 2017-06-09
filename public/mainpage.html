@@ -79,53 +79,53 @@
                 <div  ng-switch on="LastData.Available" >
                 <div ng-switch-when="true">
                    <div class="row">
-                    <div class="col-sm-3">
+                    <!-- <div class="col-sm-3">
                      Seconds: <span class="label label-default">{{LastData.Seconds}}</span>
-                    </div>
-                    <div class="col-sm-3">
+                    </div> -->
+                    <div class="col-sm-4">
                      Energy: <span class="label label-default">{{LastData.Energy}}</span>
                     </div>
-                    <div class="col-sm-3">
-                     Pinst: <span class="label label-default">{{LastData.Pinst}}</span>
+                    <div class="col-sm-4">
+                     Potenza corrente: <span class="label label-default">{{LastData.Pinst}}</span>
                     </div>
-                    <div class="col-sm-3">
-                     StateOfCharge: <span class="label label-default">{{LastData.StateOfCharge}}</span>
+                    <div class="col-sm-4">
+                     Stato di carica: <span class="label label-default">{{LastData.StateOfCharge}}</span>
                     </div>
                   </div>
                    <div class="row">
-                    <div class="col-sm-3">
+                    <!-- <div class="col-sm-3">
                      ConnStatus: <span class="label label-default">{{LastData.ConnStatus}}</span>
+                    </div> -->
+                    <div class="col-sm-4">
+                     Potenza fase 1: <span class="label label-default">{{LastData.GridPower1}}</span>
                     </div>
-                    <div class="col-sm-3">
-                     GridPower1: <span class="label label-default">{{LastData.GridPower1}}</span>
+                    <div class="col-sm-4">
+                     Potenza fase 2: <span class="label label-default">{{LastData.GridPower2}}</span>
                     </div>
-                    <div class="col-sm-3">
-                     GridPower2: <span class="label label-default">{{LastData.GridPower2}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                     GridPower3: <span class="label label-default">{{LastData.GridPower3}}</span>
+                    <div class="col-sm-4">
+                     Potenza fase 3: <span class="label label-default">{{LastData.GridPower3}}</span>
                     </div>
                   </div>
                    <div class="row">
-                    <div class="col-sm-3">
+                    <!-- <div class="col-sm-3">
                      State: <span class="label label-default">{{LastData.State}}</span>
+                    </div> -->
+                    <div class="col-sm-4">
+                     Allarmi batteria: <span class="label label-default">{{LastData.BatteryAlarm}}</span>
                     </div>
-                    <div class="col-sm-3">
-                     BatteryAlarm: <span class="label label-default">{{LastData.BatteryAlarm}}</span>
+                    <div class="col-sm-4">
+                     Voltaggio Batteria: <span class="label label-default">{{LastData.BatteryVoltage}}</span>
                     </div>
-                    <div class="col-sm-3">
-                     BatteryVoltage: <span class="label label-default">{{LastData.BatteryVoltage}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                     BatteryCurrent: <span class="label label-default">{{LastData.BatteryCurrent}}</span>
+                    <div class="col-sm-4">
+                     Corrente Batteria: <span class="label label-default">{{LastData.BatteryCurrent}}</span>
                     </div>
                   </div>
                    <div class="row">
-                    <div class="col-sm-6">
-                     ConnCCGX: <span class="label label-default">{{LastData.ConnCCGX}}</span>
+                    <div class="col-sm-4">
+                     Connessione al CCGX: <span class="label label-default">{{LastData.ConnCCGX}}</span>
                     </div>
-                    <div class="col-sm-6">
-                     Date_: <span class="label label-default">{{LastData.Date_}}</span>
+                    <div class="col-sm-4">
+                     Data: <span class="label label-default">{{LastData.Date_}}</span>
                     </div>
                   </div>
                   <br></br>
@@ -141,18 +141,26 @@
                        <div google-chart chart="myChartObjectBattery" style="height:130px; width:100%;"></div>
                     </div>
                     <div class="col-sm-4">
-                       <div  ng-switch on="LastData.StateSystem" >
-                       <div ng-switch-when="Recharging">
-                          <h1> <span class="label label-info">Recharging</span></h1>
+                        <div class="row">
+                           <div  ng-switch on="LastData.StateSystem" >
+                              <div ng-switch-when="Recharging">
+                                 <h1> <span class="label label-info">Recharging</span></h1>
+                              </div>
+                              <div ng-switch-when="Discharging">
+                                 <h1> <span class="label label-primary">Discharging</span></h1>
+                              </div>
+                              <div ng-switch-when="Standby">
+                                 <h1> <span class="label label-default">Standby</span></h1>
+                              </div>
+                           </div>
+                           <div class="row">
+                                 <h1> <span class="label label-success">Money saved: {{euros}} euro!</span></h1>
+                                 
+                              </div>
                        </div>
-                       <div ng-switch-when="Discharging">
-                          <h1> <span class="label label-primary">Discharging</span></h1>
                        </div>
-                       <div ng-switch-when="Standby">
-                          <h1> <span class="label label-default">Standby</span></h1>
-                       </div>
-                       </div>
-                       </div>
+                       
+                       
                        </div>
                     </div>
                   
@@ -234,27 +242,23 @@ ciao
 			              <div google-chart chart="myChartTrendPInst" style="height:600px; width:100%;"></div>
 		              </div>
                     <div class="col-md-6 text-center">
-			              <div google-chart chart="myChartTrendEnergy" style="height:600px; width:90%;"></div>
-		              </div>
-		           </div>
-                 
-             		<div class="row">
-                    <div class="col-md-6 text-center">
-			              <div google-chart chart="myChartTrendSeconds" style="height:600px; width:100%;"></div>
-		              </div>
-                    <div class="col-md-6 text-center">
-			              <div google-chart chart="myChartTrendStateOfCharge" style="height:600px; width:90%;"></div>
-		              </div>
-		           </div>
-                 
-             		<div class="row">
-                    <div class="col-md-6 text-center">
-			              <div google-chart chart="myChartTrendConnStatus" style="height:600px; width:100%;"></div>
-		              </div>
-                    <div class="col-md-6 text-center">
 			              <div google-chart chart="myChartTrendGridPower1" style="height:600px; width:90%;"></div>
 		              </div>
+                    <!-- <div class="col-md-6 text-center">
+                       <div google-chart chart="myChartTrendEnergy" style="height:600px; width:90%;"></div>
+                    </div> -->
 		           </div>
+                 
+                   <!-- <div class="row">
+                    <div class="col-md-6 text-center">
+                       <div google-chart chart="myChartTrendSeconds" style="height:600px; width:100%;"></div>
+                    </div>
+                    <div class="col-md-6 text-center">
+                       <div google-chart chart="myChartTrendStateOfCharge" style="height:600px; width:90%;"></div>
+                    </div>
+                 </div> -->
+                 
+
                  
              		<div class="row">
                     <div class="col-md-6 text-center">
@@ -264,6 +268,13 @@ ciao
 			              <div google-chart chart="myChartTrendGridPower3" style="height:600px; width:90%;"></div>
 		              </div>
 		           </div>
+                 
+                   <!-- <div class="row"> -->
+                   <!--  <div class="col-md-6 text-center">
+                       <div google-chart chart="myChartTrendConnStatus" style="height:600px; width:100%;"></div>
+                    </div> -->
+
+                 <!-- </div> -->
                  
              		<div class="row">
                     <div class="col-md-6 text-center">
@@ -283,12 +294,12 @@ ciao
 		              </div>
 		           </div>
                  
-             		<div class="row">
+                   <!-- <div class="row">
                     <div class="col-md-6 text-center">
-			              <div google-chart chart="myChartTrendConnCCGX" style="height:600px; width:100%;"></div>
-		              </div>
+                       <div google-chart chart="myChartTrendConnCCGX" style="height:600px; width:100%;"></div>
+                    </div> -->
                  
-		           </div>
+                 <!-- </div> -->
                  
 
                  
