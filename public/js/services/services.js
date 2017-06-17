@@ -4,6 +4,16 @@ angular.module('QCService', [])
     return {
         
         
+
+	GetImage: function(username){
+
+	    return $http.post('/api/GetImage', {"table": username});
+	},
+    
+	GetPos: function(username){
+
+	    return $http.post('/api/GetPos', {"table": username});
+	},
         
 	HistoryDataNuvola: function(StatData){
 
