@@ -8,6 +8,7 @@ angular.module('QCController', [])
     $rootScope.PrintData = {};
 	$rootScope.AlreadyDefinitiveTable=false;
 
+    
     var board_types=[
 	{"type": "LE1", "holes_left": 4, "holes_right": 4, "holes_top": 0, "holes_bottom": 5, "edge_top": 1, "edge_bottom": 0, "inter_holes": 0},
 	{"type": "LE2", "holes_left": 5, "holes_right": 5, "holes_top": 0, "holes_bottom": 0, "edge_top": 1, "edge_bottom": 1, "inter_holes": 1},
@@ -4023,7 +4024,51 @@ var month = date.getUTCMonth() + 1;
 }])
 .controller('dateController', ['$scope', 'server_operations', 'sharedProperties', '$timeout', function ($scope, server_operations, sharedProperties, $timeout ){
 
-
+    $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+    // $scope.marker = {
+    //      id: 0,
+    //      coords: {
+    //        latitude: 40.1451,
+    //        longitude: -99.6680
+    //      },
+    //      options: { draggable: true },
+    //      events: {
+    //        dragend: function (marker, eventName, args) {
+    //          $log.log('marker dragend');
+    //          var lat = marker.getPosition().lat();
+    //          var lon = marker.getPosition().lng();
+    //          $log.log(lat);
+    //          $log.log(lon);
+    //
+    //          $scope.marker.options = {
+    //            draggable: true,
+    //            labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+    //            labelAnchor: "100 0",
+    //            labelClass: "marker-labels"
+    //          };
+    //        }
+    //      }
+    //    };
+       // $scope.$watchCollection("marker.coords", function (newVal, oldVal) {
+       //   if (_.isEqual(newVal, oldVal))
+       //     return;
+       //   $scope.coordsUpdates++;
+       // });
+       // $timeout(function () {
+       //   $scope.marker.coords = {
+       //     latitude: 42.1451,
+       //     longitude: -100.6680
+       //   };
+       //   $scope.dynamicMoveCtr++;
+       //   $timeout(function () {
+       //     $scope.marker.coords = {
+       //       latitude: 43.1451,
+       //       longitude: -102.6680
+       //     };
+       //     $scope.dynamicMoveCtr++;
+       //   }, 2000);
+       // }, 1000);
+     
 
     $scope.checking_spin = false;
     $scope.login_ok =true;   
@@ -4032,7 +4077,7 @@ var month = date.getUTCMonth() + 1;
     $scope.StatData ={};
     $scope.LastData ={};
     $scope.StatDataPINST= {};
-    
+    $scope.processedImage= null;
     $scope.StatData.username = $scope.username;
     $scope.StatData.table = $scope.username;
 
@@ -4054,6 +4099,71 @@ var month = date.getUTCMonth() + 1;
         
         console.log($scope.StatData.username);
         
+        if ($scope.StatData.table != 0){
+                    server_operations.GetPos($scope.username)
+        
+        .success(function(data) {
+            
+            console.log("dbfdb")
+            
+            if ($scope.StatData.table != 0){
+            console.log("dbfdb")
+            console.log(data)
+            
+                $scope.lat = data.resu[0].LATITUDE;
+                $scope.long = data.resu[0].LONGITUDE;
+            console.log(data.resu[0].LATITUDE)
+            $scope.map = { center: { latitude: data.resu[0].LATITUDE, longitude: data.resu[0].LONGITUDE }, zoom: 8 };
+            
+            $scope.marker = {
+                 id: 0,
+                 coords: {
+                   latitude: data.resu[0].LATITUDE,
+                   longitude: data.resu[0].LONGITUDE
+                 },
+                 options: { draggable: true },
+                 events: {
+                   dragend: function (marker, eventName, args) {
+                     $log.log('marker dragend');
+                     var lat = marker.getPosition().lat();
+                     var lon = marker.getPosition().lng();
+                     $log.log(lat);
+                     $log.log(lon);
+
+                     $scope.marker.options = {
+                       draggable: true,
+                       labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+                       labelAnchor: "100 0",
+                       labelClass: "marker-labels"
+                     };
+                   }
+                 }
+               };
+            
+            
+        }
+        });
+        
+        
+        server_operations.GetImage($scope.username)
+        .success(function(data) {
+            console.log("dhbfjdrh")
+            // var base64Image = new Buffer(data.resu[0].Image, 'binary').toString('base64');
+            // console.log(data.resu[0].Image)
+            // $scope.processedImage=('data:image/jpeg;base64,' + data.resu[0].Image.toString('base64'));
+            $scope.processedImage=data
+            // if (data.resu[0]){
+            //
+            //     console.log(data.resu[0].Image)
+            //     var base64Image = new Buffer(buffer, 'binary').toString('base64');
+            //                         res.send('data:image/jpeg;base64,' + base64Image);
+                
+            // }
+        });
+        
+        }
+       
+       
         if ($scope.StatData.table != 0){
         server_operations.GetLastEntry($scope.StatData)
         .success(function(data) {

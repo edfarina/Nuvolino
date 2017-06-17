@@ -3821,6 +3821,131 @@ HistoryDataNuvola: function (req, res, callbackTot){
  
 },
 
+GetPos: function (req, res, callbackTot){
+    var table = 'Nuvola';
+    console.log("sbd");
+    var table = req.body.table;
+    console.log(dbConfig.user)
+    console.log(dbConfig.password)
+    var stringtype = "";
+
+       
+    var connection = mysql.createConnection({
+      host     : 'sql11.freesqldatabase.com',
+      user     : "sql11172989",
+      password : dbConfig.password,
+      database : 'sql11172989'
+    });
+
+    connection.connect();
+
+   			var resultTot=[];
+            
+            console.log("SELECT LAT, LONG " +  
+            " FROM users WHERE ( username = '" + table  + "'  )");
+   			connection.query(
+            // "SELECT " + var_val_name +
+            // ", Date_ FROM " + table + " WHERE ( " + var_date  + " BETWEEN '" + min_date  + "' AND  '" + max_date + "' " + stringtype + " )",
+                
+            "SELECT LATITUDE, LONGITUDE " + 
+            " FROM users WHERE ( username = '" + table  + "'  )",
+                
+            // " FROM " + table + " WHERE ( " + var_date  + " BETWEEN TO_DATE( '" + min_date  + "', 'yyyy/mm/dd') AND TO_DATE ('" + max_date + "', 'yyyy/mm/dd') "+ stringtype + " )",
+
+   			{
+
+   			},
+   			function(err, result)
+   			{
+                    // console.log(result[0])
+                
+   				if (err) {
+   					connection.end();
+   					return callbackTot(err);
+   				} else {
+   					connection.end();
+   //console.log(result.rows)
+   //we have to check if the files are already present on the disk cache (/uploads), otherwise we have to get them back from the DB
+   					async.each(result, function (row, callbackEach) {
+                        // if ((row.Seconds) % 300 === 0){
+                            
+   						resultTot.push(row);
+                    // };
+
+   					});
+
+   				}
+   		return callbackTot( null, {"results" : resultTot});
+
+   			});
+ 
+},
+
+
+
+GetImage: function (req, res, callbackTot){
+    var table = 'Nuvola';
+    console.log("sbd");
+    var table = req.body.table;
+    console.log(dbConfig.user)
+    console.log(dbConfig.password)
+    var stringtype = "";
+
+       
+    var connection = mysql.createConnection({
+      host     : 'sql11.freesqldatabase.com',
+      user     : "sql11172989",
+      password : dbConfig.password,
+      database : 'sql11172989'
+    });
+
+    connection.connect();
+
+   			var resultTot=[];
+            
+            console.log("SELECT Image " +  
+            " FROM users WHERE ( username = '" + table  + "'  )");
+   			connection.query(
+            // "SELECT " + var_val_name +
+            // ", Date_ FROM " + table + " WHERE ( " + var_date  + " BETWEEN '" + min_date  + "' AND  '" + max_date + "' " + stringtype + " )",
+                
+            "SELECT Image " + 
+            " FROM users WHERE ( username = '" + table  + "'  )",
+                
+            // " FROM " + table + " WHERE ( " + var_date  + " BETWEEN TO_DATE( '" + min_date  + "', 'yyyy/mm/dd') AND TO_DATE ('" + max_date + "', 'yyyy/mm/dd') "+ stringtype + " )",
+
+   			{
+
+   			},
+   			function(err, result)
+   			{
+                    // console.log(result[0])
+                
+   				if (err) {
+   					connection.end();
+   					return callbackTot(err);
+   				} else {
+   					connection.end();
+   //console.log(result.rows)
+   //we have to check if the files are already present on the disk cache (/uploads), otherwise we have to get them back from the DB
+   					async.each(result, function (row, callbackEach) {
+                        // if ((row.Seconds) % 300 === 0){
+                            var lob = result.row;
+                            // response.writeHead(200, {'Content-Type': 'image/jpeg' });
+                            // lob.pipe(response); // write the image out
+                        console.log(lob)
+   						resultTot.push(row);
+                    // };
+
+   					});
+
+   				}
+   		return callbackTot( null, {"results" : resultTot});
+
+   			});
+ 
+},
+
 
 
 StaticsTableCheck: function (req, res, callbackTot){

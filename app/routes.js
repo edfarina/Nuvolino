@@ -119,6 +119,35 @@ module.exports = function(app, passport) {
         });
     });
     
+    app.post('/api/GetPos', function (req, res) {
+        oracle_call.GetPos(req, res, function(err, result){
+            if (err){
+                console.log("in /api/GetPos: " + err);
+                res.status(500).send(err.message);
+            } else {
+            	resu=result.results;
+                res.status(200).send( {"message":"XX", resu});
+
+		}
+        });
+    });
+    
+    app.post('/api/GetImage', function (req, res) {
+        oracle_call.GetImage(req, res, function(err, result){
+            if (err){
+                console.log("in /api/GetImage: " + err);
+                res.status(500).send(err.message);
+            } else {
+            	resu=result.results;
+                console.log(resu[0].Image)
+                var base64Image = new Buffer(resu[0].Image, 'binary').toString('base64');
+                                    res.send('data:image/jpeg;base64,' + base64Image);
+                // res.status(200).send( {"message":"XX", resu});
+
+		}
+        });
+    });
+    
 };
 
 // route middleware to make sure
