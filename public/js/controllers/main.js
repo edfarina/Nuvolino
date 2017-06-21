@@ -4577,7 +4577,7 @@ var month = date.getUTCMonth() + 1;
                 $scope.SearchPerformed = true;
                  $scope.checking_spin = false;
                  $scope.Draw();
-            },2000);
+            },200);
             // $timeout(function () {
 
             // }, 2000);
