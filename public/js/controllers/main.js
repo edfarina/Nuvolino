@@ -4069,7 +4069,7 @@ var month = date.getUTCMonth() + 1;
        //   }, 2000);
        // }, 1000);
      
-
+       $scope.imagebattery = "/0.png";
     $scope.checking_spin = false;
     $scope.login_ok =true;   
     $scope.username =0;   
@@ -4113,7 +4113,7 @@ var month = date.getUTCMonth() + 1;
                 $scope.lat = data.resu[0].LATITUDE;
                 $scope.long = data.resu[0].LONGITUDE;
             console.log(data.resu[0].LATITUDE)
-            $scope.map = { center: { latitude: data.resu[0].LATITUDE, longitude: data.resu[0].LONGITUDE }, zoom: 8 };
+            $scope.map = { center: { latitude: data.resu[0].LATITUDE, longitude: data.resu[0].LONGITUDE }, zoom: 12 };
             
             $scope.marker = {
                  id: 0,
@@ -4216,6 +4216,20 @@ var month = date.getUTCMonth() + 1;
               ['PInst', Math.abs($scope.LastData.Pinst)],
             ];
             
+            if (Math.abs(parseFloat($scope.LastData.StateOfCharge))==0){
+                $scope.imagebattery = "/0.png";}
+            else if (Math.abs(parseFloat($scope.LastData.StateOfCharge))< 10){
+                $scope.imagebattery = "/0_10.png";}
+            else if (Math.abs(parseFloat($scope.LastData.StateOfCharge))< 30){
+                $scope.imagebattery = "/10_30.png";}
+            else if (Math.abs(parseFloat($scope.LastData.StateOfCharge))< 50){
+                $scope.imagebattery = "/30_50.png";}
+            else if (Math.abs(parseFloat($scope.LastData.StateOfCharge))< 70){
+                $scope.imagebattery = "/50_70.png";} 
+            else if (Math.abs(parseFloat($scope.LastData.StateOfCharge))< 100){
+                $scope.imagebattery = "/70_100.png";
+            }
+                        
         });
     };
     });
@@ -4563,7 +4577,7 @@ var month = date.getUTCMonth() + 1;
                 $scope.SearchPerformed = true;
                  $scope.checking_spin = false;
                  $scope.Draw();
-            },2000);
+            },200);
             // $timeout(function () {
 
             // }, 2000);

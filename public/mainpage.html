@@ -151,6 +151,8 @@
                      Potenza corrente: <span class="label label-default">{{LastData.Pinst}}</span>
                     </div>
                     <div class="col-sm-4">
+                       
+                       
                      Stato di carica: <span class="label label-default">{{LastData.StateOfCharge}}</span>
                     </div>
                   </div>
@@ -200,7 +202,8 @@
                        <div google-chart chart="myChartObjectPInst" style="height:130px; width:100%;"></div>
                     </div>
                     <div class="col-sm-4">
-                       <div google-chart chart="myChartObjectBattery" style="height:130px; width:100%;"></div>
+                       <img class="img-responsive pull-center" ng-src= "{{imagebattery}}" width="100"  />
+                       <!-- <div google-chart chart="myChartObjectBattery" style="height:130px; width:100%;"></div> -->
                     </div>
                     <div class="col-sm-4">
                         <div class="row">
