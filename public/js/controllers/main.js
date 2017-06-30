@@ -4022,7 +4022,10 @@ var month = date.getUTCMonth() + 1;
 
 
 }])
-.controller('dateController', ['$scope', 'server_operations', 'sharedProperties', '$timeout', function ($scope, server_operations, sharedProperties, $timeout ){
+
+
+
+.controller('dateController', ['$scope', 'server_operations', 'sharedProperties', '$timeout', 'weatherService', function ($scope, server_operations, sharedProperties, $timeout, weatherService ){
 
     $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
     // $scope.marker = {
@@ -4070,6 +4073,7 @@ var month = date.getUTCMonth() + 1;
        // }, 1000);
      
        $scope.imagebattery = "/0.png";
+       $scope.city = "/sunny.png";
     $scope.checking_spin = false;
     $scope.login_ok =true;   
     $scope.username =0;   
@@ -4141,6 +4145,26 @@ var month = date.getUTCMonth() + 1;
                };
             
             
+               $scope.coord = 'lat='+$scope.lat+'&lon='+$scope.long
+               console.log($scope.coord )
+               weatherService.getWeather($scope.coord ).then(function(data) {
+               console.log(data)
+               if (data.all<20){
+                  $scope.city = "/sunny.png";
+               }
+               else if (data.all<50){
+                  $scope.city = "/partially.png";
+               }
+               else if (data.all<70){
+                  $scope.city = "/partially_clouds.png";
+               }
+               else if (data.all<100){
+                  $scope.city = "/clouds.png";
+               }
+      
+            })
+        
+        
         }
         });
         
@@ -5525,5 +5549,36 @@ var month = date.getUTCMonth() + 1;
     // };
 
 }])
+
+
+.controller('OpenWeather', ['$scope', 'weatherService', function($scope, weatherService) {
+   
+
+}])
+
+
+
+.factory('weatherService', [ '$http', '$q', function ( $http, $q){
+function getWeather (coord ) {
+    var deferred = $q.defer();
+    $http.jsonp('http://api.openweathermap.org/data/2.5/weather?'+coord + '&units=metric&callback=JSON_CALLBACK&APPID=f9dbd911bc01df1d9ce563b2ba4d3209')
+      .success(function(data){
+         console.log(data)
+        deferred.resolve(data.clouds);
+      })
+      .error(function(err){
+        deferred.reject(err);
+      });
+    return deferred.promise
+  }
+
+  return {
+    getWeather: getWeather,
+  };
+}
+])
+
+
+
 
 

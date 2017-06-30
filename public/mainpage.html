@@ -98,13 +98,24 @@
                           <big> 
                           My name: <b> {{username}} </b>
                         </div>
-                        <div class="row">
-                           My place: 
-                         </div>
-                         <div class="row">
+                        <!-- <div class="row">
+                           My place:
+                         </div> -->
+                         <!-- <div class="row">
                            &nbsp Latitudine: <b> {{lat}} </b> <br>
                            &nbsp  Longitudine: <b> {{long}} </b>
-                          </div>
+                          </div> -->
+                       
+                       <div class="row" layout-align="center center">
+                          <b></b>
+                       Current Weather at my place: 
+                       
+                       <b></b>
+                          <!-- <div ng-controller="OpenWeather" > -->
+                          <img class="img-responsive pull-center" ng-src= "{{city}}" width="100"  />
+                          
+                       <!-- </div> -->
+                       </div>
                        </big>
                     </div>
                  </div>
